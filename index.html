@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BellasCba - Directorio de Escorts Independientes de Córdoba</title>
+    <!-- Bootstrap 5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Estilos Premium -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand logo-text" href="#">Bellas<span class="logo-accent">CBA</span></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#destacadas">Destacadas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#guia-modelos">Guía de Modelos</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="nav-link btn-publish px-4 py-2 text-white text-center" href="publicar.html"><i class="bi bi-plus-circle me-1"></i>Publicar</a>
+                    </li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a class="nav-link btn-login px-3 py-2 text-center" href="login.html"><i class="bi bi-person me-1"></i>Acceso Escorts</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center text-white d-flex align-items-center justify-content-center">
+        <div class="container">
+            <h1 class="hero-title">Encontrá las mejores escorts independientes de <span class="text-accent">Córdoba</span></h1>
+            <p class="hero-subtitle text-muted">Perfiles verificados, novedades y disponibilidad al instante.</p>
+            
+            <!-- Buscador Rápido -->
+            <div class="filter-box mx-auto mt-4 p-3 rounded-4 shadow-lg">
+                <form class="row g-2 align-items-center justify-content-center">
+                    <div class="col-12 col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-text bg-dark border-secondary"><i class="bi bi-geo-alt text-accent-pink"></i></span>
+                            <select class="form-select bg-dark text-white border-secondary" id="filterZona">
+                                <option value="" selected>Todas las zonas</option>
+                                <option value="Nueva Córdoba">Nueva Córdoba</option>
+                                <option value="Centro">Centro</option>
+                                <option value="Alberdi">Alberdi</option>
+                                <option value="General Paz">General Paz</option>
+                                <option value="Cerro de las Rosas">Cerro de las Rosas</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-text bg-dark border-secondary"><i class="bi bi-clock text-accent-pink"></i></span>
+                            <select class="form-select bg-dark text-white border-secondary" id="filterDisp">
+                                <option value="" selected>Cualquier disponibilidad</option>
+                                <option value="En Línea">Ahora en Línea</option>
+                                <option value="Disponible Hoy">Disponible Hoy</option>
+                                <option value="Con Lugar">Con Lugar propio</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <button type="button" class="btn btn-filter w-100" onclick="applyFilters()"><i class="bi bi-search me-1"></i>Filtrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- Historias / Novedades Activas -->
+    <div class="container mt-4">
+        <h5 class="section-title mb-3"><i class="bi bi-lightning-fill text-accent-pink me-2"></i>Novedades del Día</h5>
+        <div class="swiper storiesSwiper">
+            <div class="swiper-wrapper" id="storiesWrapper">
+                <div class="swiper-slide story-slide" onclick="openStoryModal('Valentina', 'img/img-1.png', 'Nuevas fotos disponibles ❤️ ¡Escribime!', 'Nueva Córdoba', 'Disponible hoy de 10 a 22hs')">
+                    <div class="story-avatar-wrapper active">
+                        <img src="img/img-1.png" class="story-avatar" alt="Valentina">
+                        <span class="online-indicator"></span>
+                    </div>
+                    <span class="story-name">Valentina</span>
+                </div>
+                <div class="swiper-slide story-slide" onclick="openStoryModal('Camila', 'img/img-2.png', 'Disponible de 8 a 23 todos los días 🔥 salidas y lugar propio.', 'Centro', 'Activa ahora')">
+                    <div class="story-avatar-wrapper active">
+                        <img src="img/img-2.png" class="story-avatar" alt="Camila">
+                        <span class="online-indicator"></span>
+                    </div>
+                    <span class="story-name">Camila</span>
+                </div>
+                <div class="swiper-slide story-slide" onclick="openStoryModal('Sofía', 'img/img-3.png', 'Disponible hoy todo el día, con lugar y salidas 😘 ¡Te espero!', 'Nueva Córdoba', 'Disponible hoy')">
+                    <div class="story-avatar-wrapper active">
+                        <img src="img/img-3.png" class="story-avatar" alt="Sofía">
+                        <span class="online-indicator"></span>
+                    </div>
+                    <span class="story-name">Sofía</span>
+                </div>
+                <div class="swiper-slide story-slide" onclick="openStoryModal('Laura', 'img/img-4.jpg', 'Llegando a Córdoba, fotos reales y actualizadas ✨', 'General Paz', 'Disponible hoy')">
+                    <div class="story-avatar-wrapper active">
+                        <img src="img/img-4.jpg" class="story-avatar" alt="Laura">
+                        <span class="online-indicator"></span>
+                    </div>
+                    <span class="story-name">Laura</span>
+                </div>
+                <div class="swiper-slide story-slide" onclick="openStoryModal('Rosa', 'img/img-3.png', 'Servicio completo con la mejor atención. Consultas por WhatsApp.', 'Alberdi', 'Activa ahora')">
+                    <div class="story-avatar-wrapper active">
+                        <img src="img/img-3.png" class="story-avatar" alt="Rosa">
+                        <span class="online-indicator"></span>
+                    </div>
+                    <span class="story-name">Rosa</span>
+                </div>
+                <div class="swiper-slide story-slide" onclick="openStoryModal('Veronica', 'img/img-6.jpg', 'Promos especiales por esta semana, no dudes en consultar 🔥', 'Nueva Córdoba', 'Disponible hoy')">
+                    <div class="story-avatar-wrapper active">
+                        <img src="img/img-6.jpg" class="story-avatar" alt="Veronica">
+                        <span class="online-indicator"></span>
+                    </div>
+                    <span class="story-name">Veronica</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Destacadas -->
+    <div class="container mt-5" id="destacadas">
+        <h4 class="section-title mb-4"><i class="bi bi-star-fill text-accent-gold me-2"></i>Modelos Destacadas</h4>
+        <div class="row g-3">
+            <!-- Mariana -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Nueva Córdoba" data-disponibilidad="En Línea">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-1.png" class="card-img" alt="Mariana" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online"><i class="bi bi-circle-fill"></i> En Línea</span>
+                                <span class="badge-star"><i class="bi bi-star-fill"></i></span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Mariana</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Nueva Córdoba</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Mariana,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Laura -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Centro" data-disponibilidad="Disponible Hoy">
+                <div class="profile-card position-relative">
+                    <a href="melani.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-4.jpg" class="card-img" alt="Laura" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online bg-info"><i class="bi bi-circle-fill"></i> Hoy</span>
+                                <span class="badge-star"><i class="bi bi-star-fill"></i></span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Laura</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Centro</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Laura,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="melani.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rosa -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="General Paz" data-disponibilidad="Con Lugar">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-3.png" class="card-img" alt="Rosa" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online bg-secondary"><i class="bi bi-house-door-fill"></i> Con Lugar</span>
+                                <span class="badge-star"><i class="bi bi-star-fill"></i></span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Rosa</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> General Paz</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Rosa,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Veronica -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Alberdi" data-disponibilidad="En Línea">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-6.jpg" class="card-img" alt="Veronica" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online"><i class="bi bi-circle-fill"></i> En Línea</span>
+                                <span class="badge-star"><i class="bi bi-star-fill"></i></span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Veronica</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Alberdi</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Veronica,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Araceli -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Cerro de las Rosas" data-disponibilidad="Disponible Hoy">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/id/1027/400/600" class="card-img" alt="Araceli" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online bg-info"><i class="bi bi-circle-fill"></i> Hoy</span>
+                                <span class="badge-star"><i class="bi bi-star-fill"></i></span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Araceli</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Cerro de las Rosas</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Araceli,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Violeta -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Nueva Córdoba" data-disponibilidad="Con Lugar">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-2.png" class="card-img" alt="Violeta" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online bg-secondary"><i class="bi bi-house-door-fill"></i> Con Lugar</span>
+                                <span class="badge-star"><i class="bi bi-star-fill"></i></span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Violeta</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Nueva Córdoba</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Violeta,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nuevas -->
+    <div class="container mt-5">
+        <h4 class="section-title mb-4"><i class="bi bi-sparkles text-accent-pink me-2"></i>Nuevas Incorporaciones</h4>
+        <div class="row g-3">
+            <!-- Mariana -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Nueva Córdoba" data-disponibilidad="En Línea">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-1.png" class="card-img" alt="Mariana" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online"><i class="bi bi-circle-fill"></i> En Línea</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Mariana</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Nueva Córdoba</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Mariana,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Laura -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Centro" data-disponibilidad="Disponible Hoy">
+                <div class="profile-card position-relative">
+                    <a href="melani.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/id/64/400/600" class="card-img" alt="Laura" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online bg-info"><i class="bi bi-circle-fill"></i> Hoy</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Laura</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Centro</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Laura,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="melani.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rosa -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Alberdi" data-disponibilidad="En Línea">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/id/338/400/600" class="card-img" alt="Rosa" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online"><i class="bi bi-circle-fill"></i> En Línea</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Rosa</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Alberdi</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Rosa,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Guia de Modelos -->
+    <div class="container mt-5" id="guia-modelos">
+        <h4 class="section-title mb-4"><i class="bi bi-grid-fill text-accent-pink me-2"></i>Guía General de Modelos</h4>
+        <div class="row g-3">
+            <!-- Melani -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Nueva Córdoba" data-disponibilidad="En Línea">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-1.png" class="card-img" alt="Melani" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online"><i class="bi bi-circle-fill"></i> En Línea</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Melani</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Nueva Córdoba</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Melani,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Laura -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Centro" data-disponibilidad="Disponible Hoy">
+                <div class="profile-card position-relative">
+                    <a href="melani.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-4.jpg" class="card-img" alt="Laura" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online bg-info"><i class="bi bi-circle-fill"></i> Hoy</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Laura</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Centro</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Laura,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="melani.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rosa -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="General Paz" data-disponibilidad="Con Lugar">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-5.jpg" class="card-img" alt="Rosa" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online bg-secondary"><i class="bi bi-house-door-fill"></i> Con Lugar</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Rosa</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> General Paz</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Rosa,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Veronica -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Alberdi" data-disponibilidad="En Línea">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-6.jpg" class="card-img" alt="Veronica" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online"><i class="bi bi-circle-fill"></i> En Línea</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Veronica</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Alberdi</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Veronica,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Araceli -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Cerro de las Rosas" data-disponibilidad="Disponible Hoy">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-7.jpg" class="card-img" alt="Araceli" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online bg-info"><i class="bi bi-circle-fill"></i> Hoy</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Araceli</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Cerro de las Rosas</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Araceli,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Violeta -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Nueva Córdoba" data-disponibilidad="Con Lugar">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-3.png" class="card-img" alt="Violeta" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online bg-secondary"><i class="bi bi-house-door-fill"></i> Con Lugar</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Violeta</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Nueva Córdoba</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Violeta,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mariana 2 -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Nueva Córdoba" data-disponibilidad="En Línea">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-1.png" class="card-img" alt="Mariana" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online"><i class="bi bi-circle-fill"></i> En Línea</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Mariana</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Nueva Córdoba</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Mariana,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Laura 2 -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Centro" data-disponibilidad="Disponible Hoy">
+                <div class="profile-card position-relative">
+                    <a href="melani.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-4.jpg" class="card-img" alt="Laura" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online bg-info"><i class="bi bi-circle-fill"></i> Hoy</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Laura</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Centro</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Laura,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="melani.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rosa 2 -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="General Paz" data-disponibilidad="Con Lugar">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-2.png" class="card-img" alt="Rosa" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online bg-secondary"><i class="bi bi-house-door-fill"></i> Con Lugar</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Rosa</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> General Paz</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Rosa,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Veronica 2 -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Alberdi" data-disponibilidad="En Línea">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-3.png" class="card-img" alt="Veronica" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online"><i class="bi bi-circle-fill"></i> En Línea</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Veronica</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Alberdi</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Veronica,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Araceli 2 -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Cerro de las Rosas" data-disponibilidad="Disponible Hoy">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-5.jpg" class="card-img" alt="Araceli" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online bg-info"><i class="bi bi-circle-fill"></i> Hoy</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Araceli</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Cerro de las Rosas</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Araceli,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Violeta 2 -->
+            <div class="col-6 col-md-4 col-lg-2 profile-card-col" data-zona="Nueva Córdoba" data-disponibilidad="Con Lugar">
+                <div class="profile-card position-relative">
+                    <a href="modelo.html" class="text-decoration-none text-white">
+                        <div class="card-img-wrapper">
+                            <img src="img/img-3.png" class="card-img" alt="Violeta" loading="lazy">
+                            <div class="card-gradient"></div>
+                            <div class="card-badges">
+                                <span class="badge-status online bg-secondary"><i class="bi bi-house-door-fill"></i> Con Lugar</span>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="profile-name">Violeta</h5>
+                                <p class="profile-location"><i class="bi bi-geo-alt"></i> Nueva Córdoba</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions d-flex justify-content-between p-2">
+                        <a href="https://wa.me/543511234567?text=Hola%20Violeta,%20vi%20tu%20perfil%20en%20BellasCba" target="_blank" class="btn btn-card-contact whatsapp-btn flex-grow-1 me-1"><i class="bi bi-whatsapp"></i> Chat</a>
+                        <a href="modelo.html" class="btn btn-card-contact details-btn"><i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Premium -->
+    <footer>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12 text-center text-muted">
+                    <p class="mb-2"><a href="index.html" title="Bellas Córdoba" class="logo-text fs-5">Bellas<span class="logo-accent">CBA</span></a></p>
+                    <p class="small mb-1">Guía de las mejores escorts independientes de Córdoba.</p>
+                    <p class="small mb-3">Todas las publicaciones son responsabilidad de sus respectivos anunciantes. BellasCba no posee relación de dependencia ni vinculación laboral con los mismos.</p>
+                    <p class="small text-danger fw-bold mb-3"><i class="bi bi-exclamation-triangle-fill me-1"></i>Sitio exclusivo para mayores de 18 años.</p>
+                    <hr class="border-secondary my-3 opacity-25">
+                    <p class="small mb-0">© 2026 Bellascba.com. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Historias -->
+    <div class="modal fade" id="storyModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-white">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center pt-0">
+                    <div class="story-modal-avatar-wrapper mx-auto mb-3">
+                        <img src="" id="storyModalImg" class="rounded-circle border border-primary border-3" alt="" style="width: 100px; height: 100px; object-fit: cover;">
+                        <span class="online-dot-big"></span>
+                    </div>
+                    <h4 class="modal-title fw-bold text-accent-pink" id="storyModalName"></h4>
+                    <p class="text-muted small mb-3" id="storyModalMeta"></p>
+                    <hr class="border-secondary">
+                    <p class="fs-5 px-3" id="storyModalMsg"></p>
+                    <div class="mt-4">
+                        <a href="https://wa.me/543511234567" id="storyModalWaLink" target="_blank" class="btn btn-whatsapp-modal w-100 py-2"><i class="bi bi-whatsapp me-2"></i>Enviar WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+    // Inicializar Swiper de Historias
+    const swiper = new Swiper(".storiesSwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 14,
+        freeMode: true,
+        grabCursor: true
+    });
+
+    // Abrir modal de historias
+    function openStoryModal(name, img, message, zone, availability) {
+        document.getElementById("storyModalName").innerText = name;
+        document.getElementById("storyModalImg").src = img;
+        document.getElementById("storyModalMsg").innerText = message;
+        document.getElementById("storyModalMeta").innerText = zone + " • " + availability;
+        
+        // Link directo a Whatsapp
+        document.getElementById("storyModalWaLink").href = "https://wa.me/543511234567?text=Hola%20" + encodeURIComponent(name) + ",%20vi%20tu%20novedad%20en%20BellasCba";
+        
+        var myModal = new bootstrap.Modal(document.getElementById('storyModal'));
+        myModal.show();
+    }
+
+    // Filtros de búsqueda rápidos
+    function applyFilters() {
+        const selectedZona = document.getElementById("filterZona").value;
+        const selectedDisp = document.getElementById("filterDisp").value;
+        
+        const cards = document.querySelectorAll(".profile-card-col");
+        
+        cards.forEach(card => {
+            const zone = card.getAttribute("data-zona");
+            const disp = card.getAttribute("data-disponibilidad");
+            
+            let matchZone = !selectedZona || zone === selectedZona;
+            let matchDisp = !selectedDisp || disp === selectedDisp || 
+                            (selectedDisp === "Disponible Hoy" && (disp === "En Línea" || disp === "Disponible Hoy")) ||
+                            (selectedDisp === "En Línea" && disp === "En Línea") ||
+                            (selectedDisp === "Con Lugar" && disp === "Con Lugar");
+            
+            if (matchZone && matchDisp) {
+                card.style.display = "block";
+                card.style.animation = "fadeIn 0.4s ease forwards";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+    </script>
+</body>
